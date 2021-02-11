@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <meta name='author' content='Escuela Didáctica, info@escueladidactica.com' />
+   <title>InnoBus-Conteo</title>
+   <link rel="stylesheet" href="css/slick.css">
+   <link rel="stylesheet" href="css/chosen.min.css">
+   <link rel="stylesheet" href="css/datepicker.min.css">
+   <link rel="stylesheet" href="css/wickedpicker.min.css">
+   <link rel="stylesheet" href="css/tippy.css">
+   <link rel="stylesheet" href="libs/thumbelina/thumbelina.css">
+   <link rel="stylesheet" href="css/InnoBus-Conteo.css">
+</head>
+
+<body>
+
+
+   <header class="encabezado">
+      <div class="marca">
+         <img class="marca__logo" src="img/site-logo.svg" alt="Site">
+      </div>
+      <div class="migaDePan">
+         <p class="migaDePan__completa">
+            <span class="migaDePan__item">Operaciones</span>
+            /
+            <span class="migaDePan__item">Reportes</span>
+            /
+            <span class="migaDePan__item">Conteo</span>
+            /
+            <span class="migaDePan__item">Monitoreo satelital</span>
+         </p>
+      </div>
+   </header>
+
+   <div class="contenedorCuerpo">
+      <nav class="navBar js-navBar">
+         <div class="navBar__megaMenu">
+            <i class="ib-iconos ib-menu navBar__megaMenuIcono" alt="Menú"></i>
+
+            <div class="megaMenu">
+               <ul class="megaMenu__menu">
+                  <li class="megaMenu__menuItem">
+                     <a class="megaMenu__menuItemLink" href="#">Link 1</a>
+                     <ul class="megaMenu__submenu">
+                        <li class="megaMenu__menuItem">
+                           <a class="megaMenu__menuItemLink" href="#">Link 1.1</a>
+                           <ul class="megaMenu__submenu">
+                              <li class="megaMenu__menuItem">
+                                 <a class="megaMenu__menuItemLink" href="#">Link 1.1.1</a>
+                              </li>
+                              <li class="megaMenu__menuItem">
+                                 <a class="megaMenu__menuItemLink" href="#">Link 1.1.2</a>
+                              </li>
+                           </ul>
+                        </li>
+                        <li class="megaMenu__menuItem">
+                           <a class="megaMenu__menuItemLink" href="#">Link 1.2</a>
+                        </li>
+                        <li class="megaMenu__menuItem">
+                           <a class="megaMenu__menuItemLink" href="#">Link 1.3</a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="megaMenu__menuItem">
+                     <a class="megaMenu__menuItemLink" href="#">Link 2</a>
+                  </li>
+                  <li class="megaMenu__menuItem">
+                     <a class="megaMenu__menuItemLink" href="#">Link 3</a>
+                     <ul class="megaMenu__submenu">
+                        <li class="megaMenu__menuItem">
+                           <a class="megaMenu__menuItemLink" href="#">Link 3.1</a>
+                        </li>
+                        <li class="megaMenu__menuItem">
+                           <a class="megaMenu__menuItemLink" href="#">Link 3.2</a>
+                        </li>
+                        <li class="megaMenu__menuItem">
+                           <a class="megaMenu__menuItemLink" href="#">Link 3.3</a>
+                           <ul class="megaMenu__submenu">
+                              <li class="megaMenu__menuItem">
+                                 <a class="megaMenu__menuItemLink" href="#">Link 3.3.1</a>
+                              </li>
+                              <li class="megaMenu__menuItem">
+                                 <a class="megaMenu__menuItemLink" href="#">Link 3.3.2</a>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="megaMenu__menuItem">
+                     <a class="megaMenu__menuItemLink" href="#">Link 4</a>
+                  </li>
+                  <li class="megaMenu__menuItem">
+                     <a class="megaMenu__menuItemLink" href="#">Link 5</a>
+                  </li>
+                  <li class="megaMenu__menuItem">
+                     <a class="megaMenu__menuItemLink" href="#">Link 6</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+
+
+         <div class="menuFunciones">
+            <button class="menuFunciones__btn" data-ed-accodion="1">
+               <i class="ib-iconos ib-antena menuFunciones__btnIcono" alt="Despacho"></i>
+            </button>
+            <button class="menuFunciones__btn" data-ed-accodion="2">
+               <span class="menuFunciones__alerta--robo"></span>
+               <span class="menuFunciones__alerta--abandono"></span>
+               <span class="menuFunciones__alerta--exceso"></span>
+               <span class="menuFunciones__alerta--bloqueo"></span>
+               <i class="ib-iconos ib-bandera menuFunciones__btnIcono" alt="Alertas"></i>
+            </button>
+         </div>
+
+         <div class="perfil">
+            <div class="perfil__contenedorImg">
+               <a class="perfil__img" href="#" alt="Perfil"></a>
+               <div class="menuPerfil">
+                  <div class="menuPerfil__nombre">
+                     <p class="menuPerfil__nombreTexto">José Alberto Valenzuela</p>
+                  </div>
+                  <div class="menuPerfil__items">
+                     <a class="menuPerfil__link" href="#">Ver perfil</a>
+                     <a class="menuPerfil__link" href="#">Cerrar sesión</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+      </nav>
+
+
+      <div class="contenedor">
+
+         <aside class="barraLateral js-barraLateral">
+            <div id="ed-accodion-1" class="barraLateral__acordeonContenedor">
+
+               <h2 class="barraLateral__titulo">Filtro</h2>
+
+               <div class="barraLateral__filtro">
+
+                  <div class="filtroTabs__btnContenedor">
+                     <button class="filtroTabs__btn ed-tab-activo" data-ed-tab="F1">Por rutas</button>
+                     <button class="filtroTabs__btn" data-ed-tab="F2">Por vehículos</button>
+                  </div>
+
+                  <div class="filtroTabs__contenidoContenedor">
+                     <div class="ed-tab-contenido ed-tab-contenido-activo" id="ed-tF1">
+                        <div class="blFiltro ">
+                           <label class="blFiltro__label"><i class="ib-iconos ib-ubicacion blFiltro__icono"></i>
+                              Seleccione
+                              ruta</label>
+                           <div class="monitoreo__filtroCampo">
+                              <select class="chosen">
+                                 <option>Ruta 6</option>
+                                 <option>Ruta 7</option>
+                                 <option>Ruta 8</option>
+                                 <option>Ruta 9</option>
+                              </select>
+                              <div class="blFiltro barraLateral__filtroResultados">
+                                 <button>Agregar</button>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="resultadosRuta">
+                           <div class="resultadoRuta">
+                              <div class="resultadoRuta__encabezado">
+                                 <h3 class="resultadoRuta__titulo">Ruta 3</h3>
+                                 <button class="resultado__eliminar"><i class="ib-iconos ib-equis"
+                                       alt="Quitar"></i></button>
+                              </div>
+                              <div class="resultadoRuta__sentido">
+                                 <div class="resultadoRuta__sentidoTitulo">
+                                    <input type="checkbox" name="checkbox" id="ruta3-ida" value="value">
+                                    <label for="ruta3-ida">Ida</label>
+                                 </div>
+                                 <div class="resultadoRuta__tags rutaSeleccionada--01">
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--encendido">
+                                       <img class="icono" src="img/bus-encendido.svg"
+                                          alt="Vehículo encendido con señal">
+                                       <span class="ruta">SF221</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--apagado">
+                                       <img class="icono" src="img/bus-apagado.svg"
+                                          alt="Vehículo apagado con señal">
+                                       <span class="ruta">SF222 SF222</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--sinSenal">
+                                       <img class="icono" src="img/bus-sinSenal.svg"
+                                          alt="Vehículo encendido sin señal">
+                                       <span class="ruta">SF223</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--encendido">
+                                       <img class="icono" src="img/bus-encendido.svg"
+                                          alt="Vehículo encendido con señal">
+                                       <span class="ruta">SF224</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--apagado">
+                                       <img class="icono" src="img/bus-apagado.svg"
+                                          alt="Vehículo apagado sin señal">
+                                       <span class="ruta">SF225</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--sinSenal">
+                                       <img class="icono" src="img/bus-sinSenal.svg"
+                                          alt="Vehículo encendido sin señal">
+                                       <span class="ruta">SF226</span>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="resultadoRuta__sentido">
+                                 <div class="resultadoRuta__sentidoTitulo">
+                                    <input type="checkbox" name="checkbox" id="ruta3-regreso" value="value">
+                                    <label for="ruta3-regreso">Regreso</label>
+                                 </div>
+                                 <div class="resultadoRuta__tags resultadoRuta__tags--regreso rutaSeleccionada--02">
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--encendido">
+                                       <img class="icono" src="img/bus-encendido.svg"
+                                          alt="Vehículo encendido con señal">
+                                       <span class="ruta">SF221</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--apagado">
+                                       <img class="icono" src="img/bus-apagado.svg"
+                                          alt="Vehículo apagado con señal">
+                                       <span class="ruta">SF222 SF222</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--sinSenal">
+                                       <img class="icono" src="img/bus-sinSenal.svg"
+                                          alt="Vehículo encendido sin señal">
+                                       <span class="ruta">SF223</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--encendido">
+                                       <img class="icono" src="img/bus-encendido.svg"
+                                          alt="Vehículo encendido con señal">
+                                       <span class="ruta">SF224</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--apagado">
+                                       <img class="icono" src="img/bus-apagado.svg"
+                                          alt="Vehículo apagado sin señal">
+                                       <span class="ruta">SF225</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--sinSenal">
+                                       <img class="icono" src="img/bus-sinSenal.svg"
+                                          alt="Vehículo encendido sin señal">
+                                       <span class="ruta">SF226</span>
+                                    </a>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="resultadoRuta">
+                              <div class="resultadoRuta__encabezado">
+                                 <h3 class="resultadoRuta__titulo">Ruta 23</h3>
+                                 <button class="resultado__eliminar"><i class="ib-iconos ib-equis"
+                                       alt="Quitar"></i></button>
+                              </div>
+                              <div class="resultadoRuta__sentido">
+                                 <div class="resultadoRuta__sentidoTitulo">
+                                    <input type="checkbox" name="checkbox" id="ruta23-ida" value="value">
+                                    <label for="ruta23-ida">Ida</label>
+                                 </div>
+                                 <div class="resultadoRuta__tags rutaSeleccionada--03">
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--encendido">
+                                       <img class="icono" src="img/bus-encendido.svg"
+                                          alt="Vehículo encendido con señal">
+                                       <span class="ruta">SF221</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--apagado">
+                                       <img class="icono" src="img/bus-apagado.svg"
+                                          alt="Vehículo apagado con señal">
+                                       <span class="ruta">SF222 SF222</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--sinSenal">
+                                       <img class="icono" src="img/bus-sinSenal.svg"
+                                          alt="Vehículo encendido sin señal">
+                                       <span class="ruta">SF223</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--encendido">
+                                       <img class="icono" src="img/bus-encendido.svg"
+                                          alt="Vehículo encendido con señal">
+                                       <span class="ruta">SF224</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--apagado">
+                                       <img class="icono" src="img/bus-apagado.svg"
+                                          alt="Vehículo apagado sin señal">
+                                       <span class="ruta">SF225</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--sinSenal">
+                                       <img class="icono" src="img/bus-sinSenal.svg"
+                                          alt="Vehículo encendido sin señal">
+                                       <span class="ruta">SF226</span>
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="resultadoRuta__sentido">
+                                 <div class="resultadoRuta__sentidoTitulo">
+                                    <input type="checkbox" name="checkbox" id="ruta23-regreso" value="value">
+                                    <label for="ruta23-regreso">Regreso</label>
+                                 </div>
+                                 <div class="resultadoRuta__tags resultadoRuta__tags--regreso rutaSeleccionada--04">
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--encendido">
+                                       <img class="icono" src="img/bus-encendido.svg"
+                                          alt="Vehículo encendido con señal">
+                                       <span class="ruta">SF221</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--apagado">
+                                       <img class="icono" src="img/bus-apagado.svg"
+                                          alt="Vehículo apagado con señal">
+                                       <span class="ruta">SF222 SF222</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--sinSenal">
+                                       <img class="icono" src="img/bus-sinSenal.svg"
+                                          alt="Vehículo encendido sin señal">
+                                       <span class="ruta">SF223</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--encendido">
+                                       <img class="icono" src="img/bus-encendido.svg"
+                                          alt="Vehículo encendido con señal">
+                                       <span class="ruta">SF224</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--apagado">
+                                       <img class="icono" src="img/bus-apagado.svg"
+                                          alt="Vehículo apagado sin señal">
+                                       <span class="ruta">SF225</span>
+                                    </a>
+
+                                    <a class="fila-flex resultadoRuta__tag vehiculo--sinSenal">
+                                       <img class="icono" src="img/bus-sinSenal.svg"
+                                          alt="Vehículo encendido sin señal">
+                                       <span class="ruta">SF226</span>
+                                    </a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="ed-tab-contenido" id="ed-tF2">
+                        <div class="blFiltro">
+                           <label class="blFiltro__label"><i class="ib-iconos ib-busFrente blFiltro__icono"></i>
+                              Seleccione
+                              vehículo</label>
+                           <div class="monitoreo__filtroCampo">
+                              <select class="chosen">
+                                 <option>SF 138</option>
+                                 <option>MB 234</option>
+                                 <option>PE 606</option>
+                                 <option>R2 D2</option>
+                                 <option>R2 D3</option>
+                                 <option>R2 D4</option>
+                                 <option>R2 D5</option>
+                                 <option>R2 D6</option>
+                                 <option>R2 D7</option>
+                                 <option>R2 D8</option>
+                                 <option>R2 D9</option>
+                              </select>
+                              <div class="blFiltro barraLateral__filtroResultados">
+                                 <button>Agregar</button>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="resultadosVehiculo">
+                           <div class="resultadoVehiculo vehiculo--apagado">
+                              <div class="resultadoVehiculo__encabezado">
+                                 <h3 class="resultadoVehiculo__titulo"><img class="icono"
+                                       src="img/bus-apagado.svg" alt="Vehículo apagado con señal"> SF325</h3>
+                                 <button class="resultado__eliminar"><i class="ib-iconos ib-equis"
+                                       alt="Quitar"></i></button>
+                              </div>
+                           </div>
+                           <div class="resultadoVehiculo vehiculo--encendido">
+                              <div class="resultadoVehiculo__encabezado">
+                                 <h3 class="resultadoVehiculo__titulo"><img class="icono"
+                                       src="img/bus-encendido.svg" alt="Vehículo encendido con señal"> SF225
+                                 </h3>
+                                 <button class="resultado__eliminar"><i class="ib-iconos ib-equis"
+                                       alt="Quitar"></i></button>
+                              </div>
+                           </div>
+                           <div class="resultadoVehiculo vehiculo--sinSenal">
+                              <div class="resultadoVehiculo__encabezado">
+                                 <h3 class="resultadoVehiculo__titulo"><img class="icono"
+                                       src="img/bus-sinSenal.svg" alt="Vehículo encendido sin señal"> SF525
+                                 </h3>
+                                 <button class="resultado__eliminar"><i class="ib-iconos ib-equis"
+                                       alt="Quitar"></i></button>
+                              </div>
+                           </div>
+                           <div class="resultadoVehiculo vehiculo--apagado">
+                              <div class="resultadoVehiculo__encabezado">
+                                 <h3 class="resultadoVehiculo__titulo"><img class="icono"
+                                       src="img/bus-apagado.svg" alt="Vehículo apagado con señal"> SF325</h3>
+                                 <button class="resultado__eliminar"><i class="ib-iconos ib-equis"
+                                       alt="Quitar"></i></button>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+
+            </div>
+            <div id="ed-accodion-2" class="barraLateral__acordeonContenedor">
+               <h2 class="barraLateral__titulo">Alertas</h2>
+               <div class="barraLateral__acordeonContenido">
+                  <div class="barraLateral__alerta alerta_exceso">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Excedió velocidad</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_robo">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Alerta de robo</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_abandono">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Abandonó la ruta</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_bloqueo">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Bloqueo de sensor</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_exceso">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Excedió velocidad</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_robo">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Alerta de robo</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_abandono">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Abandonó la ruta</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_bloqueo">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Bloqueo de sensor</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_exceso">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Excedió velocidad</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_robo">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Alerta de robo</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_abandono">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Abandonó la ruta</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_bloqueo">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Bloqueo de sensor</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </aside>
+         <section class="contenido contenido--mapa js-contenido">
+
+<!--
+            <iframe class="contenido__mapa"
+               src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15903.24655527975!2d-75.73019791531821!3d4.802372374410822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco!4v1562387977949!5m2!1ses!2sco"
+               width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+
+
+            <h2 class="contenido__titulo">
+               Monitoreo satelital
+            </h2>
+
+            <div class="contenido__rutaMapa">
+               <div class="contenido__monitorPunto contenido__monitorPunto--1 tooltip-trigger">
+                  <img class="monitorPunto__img" src="img/busMapa-encendido.svg" alt="">
+                  <div class="tooltip-contenedor contenido__rutaTooltip contenido__rutaTooltip--monitoreo">
+                     <div class="tooltip-cabecera azul">
+                        <h3>SF 002 <span class="close"><i class="fas fa-times"></i></span></h3>
+                     </div>
+                     <div class="tooltip-contenido">
+                        <div class="contenido__monitorVehiculo">
+
+                           <div class="fila-flex segmento contenido__monitorInfo">
+                              <i class="ib-iconos ib-bus icono"></i>
+                              <div class="datos">
+                                 <p><span class="label">Letra de pico y placa: </span><span>indefinido</span>
+                                 </p>
+                                 <p><span class="label">Conductor: </span><span>Indefinido</span></p>
+                              </div>
+                           </div>
+                           <div class="fila-flex segmento contenido__monitorTiempo">
+                              <i class="ib-iconos ib-reloj icono"></i>
+                              <div class="datos">
+                                 <p><span class="label">Hora inicio: </span><span>indefinido</span></p>
+                                 <p><span class="label">Hora fin: </span><span>Indefinido</span></p>
+                                 <p><span class="label">Tiempo de vuelta: </span><span>Indefinido</span></p>
+                              </div>
+                           </div>
+                           <div class="fila-flex segmento contenido__monitorVelocidad">
+                              <i class="ib-iconos ib-tacometro icono"></i>
+                              <div class="datos">
+                                 <div class="dato">
+                                    <p class="label">Velocidad: </p>
+                                    <div class="contenido__monitorIndicador" data-valor-porcentaje=3>
+                                       <div class="contenido__monitorIndicadorBarra" style="width: 90%">
+                                       </div>
+                                       <p class="contenido__monitorIndicadorTexto">90 km/h</p>
+                                    </div>
+                                 </div>
+                                 <div class="dato">
+                                    <p class="label">Aceleración: </p>
+                                    <div class="contenido__monitorIndicador" data-valor-porcentaje=9>
+                                       <div class="contenido__monitorIndicadorBarra" style="width: 40%"></div>
+                                       <p class="contenido__monitorIndicadorTexto">4 mts/sg^2</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="contenido__monitorPunto contenido__monitorPunto--2 tooltip-trigger">
+                  <img class="monitorPunto__img" src="img/busMapa-apagado.svg" alt="">
+                  <div class="tooltip-contenedor contenido__rutaTooltip contenido__rutaTooltip--monitoreo">
+                     <div class="tooltip-cabecera azul">
+                        <h3>SF 002 <span class="close"><i class="fas fa-times"></i></span></h3>
+                     </div>
+                     <div class="tooltip-contenido">
+                        <div class="contenido__monitorVehiculo">
+
+                           <div class="fila-flex segmento contenido__monitorInfo">
+                              <i class="ib-iconos ib-bus icono"></i>
+                              <div class="datos">
+                                 <p><span class="label">Letra de pico y placa: </span><span>indefinido</span>
+                                 </p>
+                                 <p><span class="label">Conductor: </span><span>Indefinido</span></p>
+                              </div>
+                           </div>
+                           <div class="fila-flex segmento contenido__monitorTiempo">
+                              <i class="ib-iconos ib-reloj icono"></i>
+                              <div class="datos">
+                                 <p><span class="label">Hora inicio: </span><span>indefinido</span></p>
+                                 <p><span class="label">Hora fin: </span><span>Indefinido</span></p>
+                                 <p><span class="label">Tiempo de vuelta: </span><span>Indefinido</span></p>
+                              </div>
+                           </div>
+                           <div class="fila-flex segmento contenido__monitorVelocidad">
+                              <i class="ib-iconos ib-tacometro icono"></i>
+                              <div class="datos">
+                                 <div class="dato">
+                                    <p class="label">Velocidad: </p>
+                                    <div class="contenido__monitorIndicador" data-valor-porcentaje=3>
+                                       <div class="contenido__monitorIndicadorBarra" style="width: 90%">
+                                       </div>
+                                       <p class="contenido__monitorIndicadorTexto">90 km/h</p>
+                                    </div>
+                                 </div>
+                                 <div class="dato">
+                                    <p class="label">Aceleración: </p>
+                                    <div class="contenido__monitorIndicador" data-valor-porcentaje=9>
+                                       <div class="contenido__monitorIndicadorBarra" style="width: 40%"></div>
+                                       <p class="contenido__monitorIndicadorTexto">4 mts/sg^2</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="contenido__monitorPunto contenido__monitorPunto--3 tooltip-trigger">
+                  <img class="monitorPunto__img" src="img/busMapa-sinSenal.svg" alt="">
+                  <div class="tooltip-contenedor contenido__rutaTooltip contenido__rutaTooltip--monitoreo">
+                     <div class="tooltip-cabecera azul">
+                        <h3>SF 002 <span class="close"><i class="fas fa-times"></i></span></h3>
+                     </div>
+                     <div class="tooltip-contenido">
+                        <div class="contenido__monitorVehiculo">
+
+                           <div class="fila-flex segmento contenido__monitorInfo">
+                              <i class="ib-iconos ib-bus icono"></i>
+                              <div class="datos">
+                                 <p><span class="label">Letra de pico y placa: </span><span>indefinido</span>
+                                 </p>
+                                 <p><span class="label">Conductor: </span><span>Indefinido</span></p>
+                              </div>
+                           </div>
+                           <div class="fila-flex segmento contenido__monitorTiempo">
+                              <i class="ib-iconos ib-reloj icono"></i>
+                              <div class="datos">
+                                 <p><span class="label">Hora inicio: </span><span>indefinido</span></p>
+                                 <p><span class="label">Hora fin: </span><span>Indefinido</span></p>
+                                 <p><span class="label">Tiempo de vuelta: </span><span>Indefinido</span></p>
+                              </div>
+                           </div>
+                           <div class="fila-flex segmento contenido__monitorVelocidad">
+                              <i class="ib-iconos ib-tacometro icono"></i>
+                              <div class="datos">
+                                 <div class="dato">
+                                    <p class="label">Velocidad: </p>
+                                    <div class="contenido__monitorIndicador" data-valor-porcentaje=3>
+                                       <div class="contenido__monitorIndicadorBarra" style="width: 90%">
+                                       </div>
+                                       <p class="contenido__monitorIndicadorTexto">90 km/h</p>
+                                    </div>
+                                 </div>
+                                 <div class="dato">
+                                    <p class="label">Aceleración: </p>
+                                    <div class="contenido__monitorIndicador" data-valor-porcentaje=9>
+                                       <div class="contenido__monitorIndicadorBarra" style="width: 40%"></div>
+                                       <p class="contenido__monitorIndicadorTexto">4 mts/sg^2</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+         </section>
+
+      </div>
+   </div>
+
+
+
+
+
+
+
+   <script src="libs/jquery.min.js"></script>
+   <script src="libs/thumbelina/thumbelina.js"></script>
+   <script type="text/javascript" src="js/slick.min.js"></script>
+   <script type="text/javascript" src="js/chosen.jquery.min.js"></script>
+   <script type="text/javascript" src="js/datepicker.min.js"></script>
+   <script type="text/javascript" src="js/wickedpicker.min.js"></script>
+   <!--tooltips-->
+   <script src="js/popper.min.js"></script>
+   <script src="js/tippy.min.js"></script>
+   <!--site scripts-->
+   <script src="js/InnoBus-Conteo.js"></script>
+</body>
+
+</html>

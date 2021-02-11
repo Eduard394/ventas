@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'InnoBus';
+  src:  url('../fonts/iconos/InnoBus.eot?3t2ztt');
+  src:  url('../fonts/iconos/InnoBus.eot?3t2ztt#iefix') format('embedded-opentype'),
+    url('../fonts/iconos/InnoBus.ttf?3t2ztt') format('truetype'),
+    url('../fonts/iconos/InnoBus.woff?3t2ztt') format('woff'),
+    url('../fonts/iconos/InnoBus.woff2?3t2ztt') format('woff2'),
+    url('../fonts/iconos/InnoBus.svg?3t2ztt#InnoBus') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.ib-iconos {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'InnoBus' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ib-antena:before {
+  content: "\e900";
+}
+.ib-bandera:before {
+  content: "\e901";
+}
+.ib-bus:before {
+  content: "\e902";
+}
+.ib-busFrente:before {
+  content: "\e903";
+}
+.ib-busFrente-contorno:before {
+  content: "\e904";
+}
+.ib-calendario:before {
+  content: "\e905";
+}
+.ib-flechaAbajo:before {
+  content: "\e906";
+}
+.ib-flechaArriba:before {
+  content: "\e907";
+}
+.ib-flechaDerecha:before {
+  content: "\e908";
+}
+.ib-flechaIzquierda:before {
+  content: "\e909";
+}
+.ib-menu:before {
+  content: "\e90a";
+}
+.ib-reloj:before {
+  content: "\e90b";
+}
+.ib-tacometro:before {
+  content: "\e90c";
+}
+.ib-ubicacion:before {
+  content: "\e90d";
+}
+.ib-filtro:before {
+  content: "\e90e";
+}
+.ib-equis:before {
+  content: "\e90f";
+}
+.ib-modoTrafico:before {
+  content: "\e910";
+}
+.ib-monitoreo:before {
+  content: "\e911";
+}

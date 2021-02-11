@@ -1,0 +1,1723 @@
+/*------------------------------------
+   ?BARRA LATERAL IZQUIERDA
+------------------------------------*/
+
+//Acordeon
+
+.barraLateral__acordeonContenedor {
+   height: 0;
+   overflow: auto;
+   position: relative;
+   width: var(--barraLateral__ancho);
+   visibility: hidden;
+   opacity: 0;
+   padding: 0;
+   transition: visibility .4s, opacity .4s, height .4s, padding .4s;
+
+   &.ed-accodion-activo {
+      height: 100%;
+      opacity: 1;
+      visibility: visible;
+      padding: 1.5rem 0 1rem 2px;
+   }
+}
+
+
+
+.barraLateral {
+   background-color: lighten($colorAzul, 28%);
+   box-shadow: inset -3px 0 6px rgba($colorNegro, .15);
+   height: 100%;
+   overflow: hidden;
+   position: relative;
+   flex: 0 0 0;
+   max-width: 0;
+   transition: flex .4s, max-width .4s;
+
+   &.barraLateral--activa {
+      flex: 0 0 var(--barraLateral__ancho);
+      max-width: var(--barraLateral__ancho);
+   }
+
+   &.barraLateral--inactiva {
+      flex: 0 0 0;
+      max-width: 0;
+   }
+
+   &__titulo {
+      font-size: 1.4rem;
+      color: $colorAzulOscuro;
+      font-weight: bold;
+      margin-bottom: 0;
+      padding: 0 .6rem 1rem;
+   }
+
+   &__descripcion {
+      padding: 0 .6rem .6rem;
+      font-size: .9rem;
+
+      p {
+         margin-bottom: 5px;
+      }
+   }
+
+   &__acordeon {
+
+      min-height: 100%;
+      height: 100%;
+
+
+      &Item {
+         display: block;
+         width: 100%;
+         background-color: $colorAzulOscuro;
+         padding: 8px .5rem 10px;
+         position: relative;
+
+         text-decoration: none;
+         color: $colorBlanco;
+         font-size: 1.1rem;
+
+         border-bottom: 1px solid $colorGris;
+
+         &:hover {
+            color: $colorBlanco;
+            text-decoration: none;
+         }
+
+      }
+
+      &Icono {
+         position: absolute;
+         top: 0;
+         right: 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 86px;
+         height: 36px;
+         background-image: url(../img/pillAcordeon.svg);
+         background-repeat: no-repeat;
+         background-position: right top;
+      }
+
+   }
+
+   &__ruta {
+      display: flex;
+      justify-content: space-between;
+      padding: .4rem .6rem 0;
+      border-top: 2px dashed $colorGrisMedio;
+
+      &:first-child {
+         border-top: 0;
+      }
+
+      &Nombre {
+         display: flex;
+         align-items: center;
+
+         width: 70px;
+      }
+
+      &Texto {
+         min-width: 67px;
+         margin-right: 10px;
+         @include placa($colorAzulMedio, $colorAzulMedio, $colorBlanco);
+      }
+
+      &Numero {
+         display: block;
+         margin-top: 4px;
+         font-size: 1.6rem;
+      }
+
+      &Recorrido {
+         width: calc(100% - 80px);
+
+         display: flex;
+         white-space: nowrap;
+
+      }
+
+      &Icono {
+         color: $colorVerde;
+         font-size: 30px;
+         margin-right: 10px;
+      }
+
+      &Seleccion {
+         @include formularioInput();
+         width: 70%;
+         height: 28px;
+      }
+
+      &Acciones {
+         text-align: center;
+         padding-left: 10px;
+      }
+
+      &Boton {
+         @include boton($colorVerde, $colorBlanco, .9em, 4px);
+      }
+
+      &.completa {
+         .barraLateral__rutaTexto {
+            @include placa($colorAzulMedio, $colorBlanco, $colorAzulMedio);
+         }
+      }
+   }
+
+   &__ubicacion {
+      font-size: .9rem;
+      cursor: pointer;
+      display: inline-flex;
+      flex-direction: column;
+      text-align: center;
+      padding-top: 5px;
+      padding-bottom: 20px;
+      border-radius: .2em;
+      position: relative;
+      min-width: 70px;
+
+      &:hover {
+         background-color: $colorBlanco;
+      }
+
+      &.slick-slide {
+         display: inline-flex;
+      }
+
+      &Icono {
+         font-size: 22px;
+         color: $colorVerde;
+         margin: .5em 0;
+      }
+
+
+      &Grafico {
+         position: relative;
+      }
+
+      &Linea {
+         border: none;
+         height: .1em;
+         color: $colorAzulMedio;
+         /* old IE */
+         background-color: $colorAzulMedio;
+      }
+
+      &Punto {
+
+         background-color: $colorGris;
+         border: .1em solid $colorAzulMedio;
+         border-radius: $radiusCirculo;
+         width: .8em;
+         height: .8em;
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         margin: auto;
+         top: 0;
+         bottom: 0;
+         @include centrarXY(flex);
+
+         div {
+            width: .6em;
+            height: .6em;
+            border-radius: 50%;
+            border-radius: $radiusCirculo;
+            background-color: $colorAzulMedio;
+         }
+      }
+
+      &.sinAsignar {
+         .barraLateral__ubicacionIcono {
+            color: $colorPorDefecto;
+         }
+
+         .barraLateral__ubicacionCodigo {
+            color: $colorGrisMedio;
+         }
+
+         .barraLateral__ubicacionLinea {
+            color: $colorGrisMedio;
+            /* old IE */
+            background-color: $colorGrisMedio;
+         }
+
+         .barraLateral__ubicacionPunto {
+
+            background-color: $colorBlanco;
+            border-color: $colorGrisMedio;
+
+            div {
+               display: none;
+            }
+         }
+      }
+
+      &Flecha {
+         display: none;
+         height: 0;
+         width: 0;
+         //position: absolute;
+         border: none;
+         border-right: 10px solid transparent;
+         border-left: 10px solid transparent;
+         border-top: 10px solid $colorBlanco;
+         //bottom: -10px;
+      }
+
+      &.activo {
+         background-color: $colorBlanco;
+         box-shadow: 0 0 0 1px $colorVerde;
+         z-index: 2;
+
+
+         &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 10px;
+            background-color: $colorAzulMedio;
+            z-index: 9;
+            clip-path: polygon(50% 0, 100% 100%, 0 100%);
+         }
+
+      }
+   }
+
+   &__rutaAcordeon {
+      display: flex;
+      background-color: $colorBlanco;
+      padding: 0;
+      flex-direction: column;
+      max-height: 0;
+      transition: all .35s;
+      overflow: hidden;
+
+      &.acordeon-activo {
+         max-height: initial;
+         padding: 1em 0;
+         overflow: visible;
+         border-top: 2px solid $colorAzulMedio;
+         box-shadow: inset 0 2px 6px hsla(0, 0%, 0%, .15);
+      }
+   }
+
+   &__alerta {
+      padding: 0 10px;
+
+      &:hover {
+         background-color: rgba($colorAzul, .2);
+      }
+
+      &:first-child>div {
+         border-top: 1px solid rgba($colorAzul, .35);
+      }
+
+      &>div {
+         border-bottom: 1px solid rgba($colorAzul, .35);
+         padding: 7px 0;
+         display: flex;
+         align-items: flex-start;
+         cursor: pointer;
+      }
+
+      &Circulo {
+         height: 1em;
+         width: 1em;
+         border-radius: $radiusCirculo;
+         margin-right: 15px;
+      }
+
+      &Codigo {
+         margin-right: 7px;
+      }
+
+      &.alerta_exceso {
+         .barraLateral__alertaCirculo {
+            background-color: $colorAlertaVelocidad;
+         }
+      }
+
+      &.alerta_abandono {
+         .barraLateral__alertaCirculo {
+            background-color: $colorAlertaRuta;
+         }
+      }
+
+      &.alerta_robo {
+
+         background: rgba($colorAlertaRobo, .2);
+
+         .barraLateral__alertaCirculo {
+
+            background-color: $colorAlertaRobo;
+         }
+
+         &:hover {
+            background: rgba($colorAlertaRobo, .3);
+         }
+      }
+
+      &.alerta_bloqueo {
+         .barraLateral__alertaCirculo {
+            background-color: $colorAlertaSensor;
+         }
+      }
+   }
+
+   &__filtro {
+      margin-bottom: 1.5rem;
+
+      &Fecha {
+         label {
+            margin-right: 1em;
+         }
+      }
+
+      &Control {
+         align-items: center;
+
+         label {
+            margin-bottom: 0;
+            margin-left: .5rem;
+         }
+      }
+
+      &Resultados {
+         display: flex;
+         justify-content: center;
+
+         button {
+            @include boton($colorAzulMedio, $colorBlanco, 1rem, 4px);
+         }
+      }
+   }
+
+
+
+
+   .slick-list {
+      padding: 1px 3px 0px 2px;
+   }
+
+}
+
+.barraLateral__rutaFormulario {
+   display: flex;
+   flex-wrap: wrap;
+   margin-bottom: 15px;
+}
+
+.barraLateral__rutaFormularioItem {
+   --gap: 10px;
+   display: flex;
+   flex: 0 0 100%;
+   max-width: 100%;
+   padding-left: var(--gap);
+   padding-right: var(--gap);
+   margin-top: 5px;
+   margin-bottom: 5px;
+   align-items: center;
+
+   @media (min-width: $sm) {
+      flex: 0 0 50%;
+      max-width: 50%;
+   }
+}
+
+.barraLateral__rutaRecorrido .thumbelina {
+   padding: 1px;
+}
+
+
+
+
+.blFiltro {
+
+   padding: 14px 10px;
+
+   &__label {
+      display: flex;
+      align-items: center;
+   }
+
+   &__icono {
+      font-size: 1.1rem;
+      color: $colorVerde;
+      margin-right: 7px;
+   }
+
+
+   &--coloumnas {
+      display: flex;
+      flex-wrap: wrap;
+
+      .blFiltro__coloumna {
+         flex-basis: 0%;
+         flex-grow: 1;
+         max-width: 100%;
+         width: 100%;
+         padding-left: 10px;
+         padding-right: 10px;
+
+         &:first-child {
+            padding-left: 0;
+            padding-right: 10px;
+         }
+
+         &:last-child {
+            padding-left: 10px;
+            padding-right: 0;
+         }
+      }
+   }
+}
+
+
+
+
+
+
+.tablaConvenciones {
+   margin-left: 10px;
+   margin-right: 10px;
+   margin-bottom: 15px;
+   padding: 13px 10px;
+   background-color: hsla(200, 77%, 92%, 1);
+   border-radius: 8px;
+}
+
+.tablaConvenciones__titulo {
+   text-align: center;
+   font-size: 1.1rem;
+
+   &Icono {
+      font-size: 1.4rem;
+      vertical-align: middle;
+      margin-right: 5px;
+   }
+}
+
+.tablaConvenciones__encabezado,
+.tablaConvenciones__fila {
+   display: flex;
+}
+
+.tablaConvenciones__encabezado {
+   font-weight: bold;
+   padding: 4px 5px;
+   margin-bottom: 5px;
+}
+
+.tablaConvenciones__fila {
+   padding: 4px 10px;
+   margin-bottom: 5px;
+   border-radius: 50px;
+   font-weight: bold;
+}
+
+
+.tablaConvenciones__fila.velocidad {
+   &--muyLento {
+      background-color: rgba($colorVelocidad--muyLento, .3);
+
+      p {
+         color: darken($colorVelocidad--muyLento, 10%);
+      }
+   }
+
+   &--lento {
+      background-color: rgba($colorVelocidad--lento, .3);
+
+      p {
+         color: darken($colorVelocidad--lento, 10%);
+      }
+   }
+
+   &--normal {
+      background-color: rgba($colorVelocidad--normal, .3);
+
+      p {
+         color: darken($colorVelocidad--normal, 10%);
+      }
+   }
+
+   &--rapido {
+      background-color: rgba($colorVelocidad--rapido, .3);
+
+      p {
+         color: darken($colorVelocidad--rapido, 10%);
+      }
+   }
+
+   &--muyRapido {
+      background-color: rgba($colorVelocidad--muyRapido, .3);
+
+      p {
+         color: darken($colorVelocidad--muyRapido, 10%);
+      }
+   }
+}
+
+.tablaConvenciones__celda {
+   flex-basis: 0%;
+   flex-grow: 1;
+   max-width: 100%;
+   width: 100%;
+
+   text-align: center;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+
+   p {
+      margin-bottom: 0;
+   }
+}
+
+.tablaConvenciones__icono {
+   display: inline-block;
+   height: 10px;
+   width: 100%;
+   border-radius: 2rem;
+
+   &.velocidad {
+      &--muyLento {
+         background-color: $colorVelocidad--muyLento;
+      }
+
+      &--lento {
+         background-color: $colorVelocidad--lento;
+      }
+
+      &--normal {
+         background-color: $colorVelocidad--normal;
+      }
+
+      &--rapido {
+         background-color: $colorVelocidad--rapido;
+      }
+
+      &--muyRapido {
+         background-color: $colorVelocidad--muyRapido;
+      }
+   }
+}
+
+
+
+
+
+
+
+@keyframes rotateX360 {
+   0% {
+      transform: rotateX(0deg);
+   }
+
+   100% {
+      transform: rotateX(360deg);
+   }
+}
+
+.alertas {
+   width: 28px;
+   height: 28px;
+   border-radius: 50%;
+   background-color: gray;
+   font-size: 13px;
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0 2px;
+
+
+
+   height: auto;
+   border-radius: 4px;
+   padding: 2px;
+
+
+
+   &:first-child {
+      margin-left: 10px;
+   }
+
+   &--mas {
+      animation: rotateX360 .6s;
+   }
+
+   &--rojo {
+      background-color: $colorAlertaRobo;
+      animation: pulse .7s infinite;
+   }
+
+   &--amarillo {
+      background-color: $colorAlertaVelocidad;
+   }
+
+   &--naranja {
+      background-color: $colorAlertaRuta;
+   }
+
+   &--verde {
+      background-color: $colorAlertaSensor;
+   }
+
+   &--99:after {
+      content: "+";
+      top: -3px;
+      position: relative;
+   }
+}
+
+
+
+
+
+/*------------------------------------
+   ?CONTENIDO
+------------------------------------*/
+
+
+
+.contenido {
+   position: relative;
+   flex: 0 0 100%;
+   max-width: 100%;
+   height: 100%;
+   overflow-y: auto;
+   background: $colorGris;
+   padding: 1rem;
+   transition: flex .4s, max-width .4s;
+
+   .adelantado {
+
+      .contenido__graficaVariable {
+         height: 100%;
+         background-color: $colorTiempoDeMas;
+      }
+
+      .contenido__graficaTiempo {
+         color: darken($colorTiempoDeMas, 24%);
+      }
+   }
+
+   .atrasado {
+
+      .contenido__graficaVariable {
+         height: 33%;
+         background-color: $colorTiempoDeMenos;
+      }
+
+      .contenido__graficaTiempo {
+         color: $colorTiempoDeMenos;
+      }
+   }
+
+}
+
+.contenido--mapa {
+   overflow: hidden;
+
+   .contenido__titulo {
+      position: absolute;
+      font-size: 1.6rem;
+      background-color: rgba($colorAzul, .8);
+   }
+}
+
+.contenido.contenido--barraLateral {
+   flex: 0 0 var(--contenido__ancho);
+   max-width: var(--contenido__ancho);
+}
+
+.contenido__encabezado {
+   display: flex;
+   padding: 1.5em 1em;
+   position: fixed;
+   z-index: 9;
+   width: 100%;
+   background: $colorGris;
+
+}
+
+
+
+.contenido__mapa {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 0;
+   filter: grayscale(.7);
+}
+
+
+
+
+.contenido__titulo {
+   background-color: rgba($colorAzul, .3);
+   border-radius: 10px;
+   color: $colorAzulOscuro;
+   font-size: 2rem;
+   font-weight: bold;
+   text-transform: uppercase;
+   padding: 15px 30px;
+   margin-bottom: 1.4rem;
+}
+
+
+
+.contenido__ruta {
+   width: calc(100% - 30px);
+   margin-bottom: 2.5rem;
+
+   &Encabezado {
+      color: $colorAzulMedio;
+      border-bottom: 2px dotted $colorAzulMedio;
+      font-size: 1.4rem;
+      font-weight: bold;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+   }
+
+   &Punto {
+      cursor: pointer;
+      position: absolute;
+      z-index: 9;
+      height: 20px;
+      width: 20px;
+      border: 3px solid $colorVerde;
+      border-radius: $radiusCirculo;
+      background-color: $colorBlanco;
+
+      top: 60%;
+      left: 70%;
+   }
+
+   &Vehiculo {
+      @include setPestanas();
+      @include paddingY1();
+
+      .nav-link .icono {
+         width: 56px;
+         @include imagenFondoCompleta(url('../img/bus-gris.png'));
+      }
+
+      .nav-link.active .icono {
+         background-image: url('../img/icono-bus-azul.png')
+      }
+   }
+}
+
+.contenido__vehiculo {
+   @include tarjeta();
+   @include sombra-suave();
+   margin: 1rem 15px;
+   padding: 12px 10px;
+   flex-direction: row;
+
+   &GrupoIcono {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 var(--controlVehiculoIcono__ancho);
+   }
+
+   &Codigo {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+   }
+
+   &Icono {
+      text-align: center;
+      width: 100%;
+      margin-bottom: -5px;
+      font-size: 60px;
+      color: $colorAzulMedio;
+   }
+}
+
+.carouselVehiculo {
+   width: 100%;
+
+   &__item:nth-of-type(2n+2) .contenido__cronogramaItem {
+      background-color: rgba(0, 0, 0, .05);
+   }
+}
+
+.contenido__cronograma {
+   width: calc(100% - var(--controlVehiculoIcono__ancho));
+
+   padding: 2px 15px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   font-size: .9rem;
+
+   &Titulo {
+      padding: .3rem .1rem;
+      text-align: center;
+      border-bottom: 1px solid $colorGrisMedio;
+      color: $colorAzulMedio;
+
+      p {
+         margin-bottom: 0;
+      }
+   }
+
+   &Info {
+      position: relative;
+      height: 60px;
+   }
+
+   &LineasGuia {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding-bottom: .5rem;
+      z-index: 1;
+
+      &>div {
+         height: 33.333%;
+         width: 100%;
+         margin-left: auto;
+         margin-right: auto;
+         border-bottom: 1px solid $colorGrisMedio;
+      }
+   }
+
+   &Resumen {
+      padding: 0 10px 10px;
+      height: 100%;
+      display: flex;
+      z-index: 9;
+      position: relative;
+   }
+
+   &Ruta {
+      font-size: .7rem;
+      @include paddingXY1();
+
+
+   }
+
+}
+
+.contenido__grafica {
+   width: 20%;
+   max-width: 25px;
+   display: flex;
+   align-items: flex-end;
+
+   &Variable {
+      width: 100%;
+      height: 66%;
+      background-color: $colorTiempoNormal;
+   }
+
+   &Datos {
+      padding-left: .5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+   }
+
+   &Tiempo {
+      width: 100%;
+      color: $colorTiempoNormal;
+      font-size: .9rem;
+      margin-bottom: 0;
+   }
+
+   &Hora {
+      width: 100%;
+      font-size: .9rem;
+      margin-bottom: 0;
+   }
+}
+
+.contenido__monitor {
+
+   height: calc(100vh - 185px);
+   overflow: hidden;
+
+   &Mapa {
+
+      height: 100%;
+      position: relative;
+
+      iframe {
+         border-radius: 10px;
+         height: 100%;
+         width: 100%;
+         z-index: 1;
+      }
+   }
+
+   &Formulario {
+
+      align-items: center;
+
+      .titulo {
+         color: $colorAzulMedio;
+         font-size: .8em;
+         font-weight: 700;
+         align-items: center;
+      }
+
+      .icono {
+         @include imagenFondoCompleta(url('../img/icono-gps.png'));
+         height: 29px;
+         width: 25px;
+         margin-right: .5em;
+      }
+   }
+
+
+   &Despacho {
+      align-items: center;
+      justify-content: right;
+
+      button {
+         @include boton($colorAzul, $colorBlanco, .9rem, 4px);
+      }
+   }
+
+   &Vehiculo {
+      .segmento {
+
+         border-bottom: 1px solid $colorGrisMedio;
+         font-size: .9rem;
+         align-items: center;
+
+         padding-top: 10px;
+         padding-bottom: 10px;
+
+         p {
+            margin-bottom: 0;
+         }
+
+         .label {
+            color: $colorAzulMedio;
+            font-weight: 700;
+         }
+
+         .icono {
+            width: 44px;
+            min-width: 44px;
+            margin-right: 10px;
+            font-size: 30px;
+            text-align: center;
+            color: $colorVerde;
+         }
+
+      }
+   }
+
+   &Velocidad {
+
+      .datos {
+         width: 100%;
+      }
+
+      .dato {
+         display: flex;
+         position: relative;
+         width: 100%;
+         justify-content: space-between;
+         align-items: center;
+         margin-bottom: 10px;
+      }
+   }
+
+   &Indicador {
+      --barra__ancho: 8rem;
+      --barra__alto: 1.6rem;
+      width: var(--barra__ancho);
+      height: var(--barra__alto);
+      border-radius: 5px;
+      background: $colorGrisMedio;
+      overflow: hidden;
+      position: relative;
+
+      &Texto {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         width: 100%;
+         text-align: center;
+         color: $colorBlanco;
+         font-weight: bold;
+         text-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+      }
+
+      &Barra {
+         height: 100%;
+         overflow: hidden;
+         position: relative;
+
+         &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: var(--barra__ancho);
+            height: var(--barra__alto);
+            background-image: url("../img/speed-bar.png");
+            background-size: 100% auto;
+            background-repeat: repeat-y;
+         }
+      }
+   }
+
+   &Alertas {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: all .35s;
+
+      &.activo {
+         @include sombra-media();
+      }
+
+      a.barraLateral__acordeonItem {
+         color: $colorBlanco !important;
+      }
+
+      &Conteo {
+         background: $colorRojo;
+         font-size: .7em;
+         border-radius: $radiusPill;
+         padding: .1em .3em;
+      }
+   }
+}
+
+
+.contenido__monitorPunto {
+   cursor: pointer;
+   position: absolute;
+   z-index: 9;
+
+   &--1{
+      top: 40%;
+      left: 20%;
+   }
+   &--2{
+      top: 50%;
+      left: 60%;
+   }
+   &--3{
+      top: 70%;
+      left: 50%;
+   }
+}
+
+.monitorPunto__img {
+   width: 40px;
+}
+
+.resultadosRuta,
+.resultadosVehiculo {
+   padding-left: .6rem;
+   padding-right: .6rem;
+}
+
+.resultadoRuta {
+   padding: 10px 0 2px;
+   margin-bottom: 15px;
+
+   &:first-child {
+      margin-top: 10px;
+   }
+}
+
+.resultadoVehiculo {
+   min-height: 50px;
+   padding: 22px 5px 2px;
+   margin-bottom: 15px;
+   background-image: url(../img/fondo-ruta.svg);
+
+   &:first-child {
+      margin-top: 10px;
+   }
+
+   .icono {
+      width: 45px;
+   }
+
+   .resultado__eliminar {
+      color: $colorAzulMedio;
+   }
+
+   &.vehiculo--encendido {
+      .resultadoVehiculo__titulo {
+         color: $colorVerde;
+      }
+   }
+
+   &.vehiculo--apagado {
+      .resultadoVehiculo__titulo {
+         color: hsl(0, 0%, 60%);
+      }
+   }
+
+   &.vehiculo--sinSenal {
+      .resultadoVehiculo__titulo {
+         color: hsla(17, 65%, 50%, 1);
+      }
+   }
+}
+
+.resultadoRuta__sentido {
+   margin-bottom: 30px;
+   padding-left: 5px;
+   padding-right: 5px;
+
+}
+
+.resultadoRuta__sentidoTitulo {
+   display: flex;
+   align-items: center;
+   margin-bottom: 5px;
+
+   input {
+      width: 16px;
+      margin-right: 8px;
+
+      &:hover {
+         cursor: pointer;
+      }
+   }
+
+   label {
+      margin-bottom: 0;
+      font-size: 1rem;
+      font-weight: normal;
+
+      &:hover {
+         cursor: pointer;
+      }
+   }
+}
+
+.resultadoRuta__encabezado {
+   display: flex;
+   align-items: center;
+   margin-bottom: 15px;
+   background-color: $colorAzulMedio;
+   padding: 5px 5px 3px;
+   border-radius: 4px;
+}
+
+.resultadoVehiculo__encabezado {
+   display: flex;
+   align-items: center;
+}
+
+.resultadoRuta__titulo {
+   padding-bottom: 0;
+   color: $colorBlanco;
+}
+
+.resultadoVehiculo__titulo {
+   padding-bottom: 0;
+   display: flex;
+   align-items: center;
+
+   i {
+      font-size: 24px;
+      margin-right: 7px;
+   }
+}
+
+.resultadoRuta__tags {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.rutaSeleccionada--01 {
+   .resultadoRuta__tag {
+      border-bottom: 2px solid $colorRutaSeleccionada--01;
+  }
+}
+.rutaSeleccionada--02 {
+   .resultadoRuta__tag {
+      border-bottom: 2px solid $colorRutaSeleccionada--02;
+  }
+}
+.rutaSeleccionada--03 {
+   .resultadoRuta__tag {
+      border-bottom: 2px solid $colorRutaSeleccionada--03;
+  }
+}
+.rutaSeleccionada--04 {
+   .resultadoRuta__tag {
+      border-bottom: 2px solid $colorRutaSeleccionada--04;
+  }
+}
+.rutaSeleccionada--05 {
+   .resultadoRuta__tag {
+      border-bottom: 2px solid $colorRutaSeleccionada--05;
+  }
+}
+.rutaSeleccionada--06 {
+   .resultadoRuta__tag {
+      border-bottom: 2px solid $colorRutaSeleccionada--06;
+  }
+}
+.rutaSeleccionada--07 {
+   .resultadoRuta__tag {
+      border-bottom: 2px solid $colorRutaSeleccionada--07;
+  }
+}
+.rutaSeleccionada--08 {
+   .resultadoRuta__tag {
+      border-bottom: 2px solid $colorRutaSeleccionada--08;
+  }
+}
+.rutaSeleccionada--09 {
+   .resultadoRuta__tag {
+      border-bottom: 2px solid $colorRutaSeleccionada--09;
+  }
+}
+.rutaSeleccionada--10 {
+   .resultadoRuta__tag {
+      border-bottom: 2px solid $colorRutaSeleccionada--10;
+  }
+}
+
+
+.resultado__eliminar {
+   margin-left: auto;
+   background-color: transparent;
+   font-size: 14px;
+   color: $colorBlanco;
+
+   transition: opacity .3s, transform .3s;
+   transform: scale(1);
+
+   @media (hover) {
+      opacity: .8;
+
+      &:hover {
+         opacity: 1;
+         transform: scale(1.1);
+      }
+   }
+
+}
+
+.resultadoRuta__tag {
+   color: $colorAzulMedio;
+   min-width: 82px;
+   height: 50px;
+   padding: 24px 7px 6px;
+   margin-bottom: 3px;
+   font-size: .8rem;
+   align-items: center;
+   display: flex;
+   text-decoration: none;
+   background-image: url(../img/fondo-ruta.svg);
+   background-repeat: repeat-x;
+
+   &:hover {
+      text-decoration: none;
+   }
+
+   .icono {
+      margin-right: 5px;
+      width: 40px;
+   }
+
+   .ruta {
+      font-weight: 700;
+      text-align: center;
+      white-space: nowrap;
+   }
+
+   &.vehiculo--encendido {
+      color: $colorVerde;
+   }
+
+   &.vehiculo--apagado {
+      color: hsl(0, 0%, 60%);
+   }
+
+   &.vehiculo--sinSenal {
+      color: #dd4d3d;
+   }
+}
+
+.resultadoRuta__tags--regreso .icono {
+   transform: rotateY(180deg);
+}
+
+
+
+.contenido__cronogramaItem {
+   @include tarjeta();
+   padding-left: 10px;
+   padding-right: 10px;
+   width: 160px;
+   margin: 10px 5px;
+   display: inline-block;
+   cursor: pointer;
+   box-shadow: 0 0 0 transparent;
+   transition: box-shadow .3s, transform .3s;
+
+   &:hover {
+      transform: scale(1.05);
+      @include sombra-suave();
+   }
+}
+
+
+.contenido__vehiculoReporte {
+   @include boton(transparent, $colorAzulMedio, .9rem, 4px);
+   border: 1px solid;
+   margin-bottom: 8px;
+}
+
+
+
+
+
+
+
+/*------------------------------------
+   ?DESPACHO
+------------------------------------*/
+
+.despacho {
+   width: 100%;
+   padding: 15px;
+}
+
+
+
+
+
+
+
+
+/*------------------------------------
+   ?UTILIDADES
+------------------------------------*/
+
+.dNone {
+   display: none;
+}
+
+.padding0 {
+   padding: 0;
+}
+
+.paddingXY-1 {
+   @include paddingXY1();
+}
+
+.videoResponsive {
+
+   border: 5px solid $colorNaranja;
+   border-radius: $radiusRedondeado;
+   overflow: hidden;
+   background-color: $colorNegro;
+
+   position: relative;
+   padding-bottom: 56.25%;
+   height: 0;
+
+   iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+   }
+}
+
+.slick-arrow {
+   cursor: pointer;
+   padding: 0 .5em;
+   //display: block;
+   width: 8px;
+   height: 100%;
+
+}
+
+// toggle
+
+.toggleSwitch {
+   display: inline-block;
+   height: 1.5em;
+   position: relative;
+   width: 40px;
+
+   & .slider {
+      background-color: $colorGris;
+      border: 1px solid $colorVerde;
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: .4s;
+
+      &:before {
+         background-color: hsl(0, 0%, 60%);
+         bottom: .2em;
+         content: "";
+         height: 1em;
+         left: .2em;
+         position: absolute;
+         transition: .4s;
+         width: 1em;
+      }
+
+      &.round {
+         border-radius: 34px;
+      }
+
+      &.round:before {
+         border-radius: 50%;
+      }
+   }
+
+   &>input {
+      display: none;
+   }
+
+   &>input:checked+.slider {
+      background-color: $colorVerdeClaro;
+   }
+
+   &>input:checked+.slider:before {
+      background-color: $colorVerde;
+      transform: translateX(73%);
+   }
+}
+
+//slick flechas
+
+.arrow-left {
+   @include imagenFondoCompleta(url('../img/arrow-left.png'));
+}
+
+.arrow-right {
+   @include imagenFondoCompleta(url('../img/arrow-right.png'));
+}
+
+//alineacion texto
+
+.text-center {
+   text-align: center;
+}
+
+.text-right {
+   text-align: right;
+}
+
+.text-left {
+   text-align: left;
+}
+
+//no-scroll
+
+.no-scroll {
+   overflow: hidden;
+}
+
+//presets flex
+
+.columna-flex {
+   @include flexColumn();
+}
+
+.fila-flex {
+   @include flexRow();
+}
+
+//iconos
+
+.icono {
+   background-size: contain;
+   margin-right: .5em;
+}
+
+// chosen
+
+.chosen-container {
+   width: 100% !important;
+
+   li.active-result.highlighted {
+      background: $colorAzulMedio;
+      border-radius: 2px;
+   }
+}
+
+
+.chosen-container-single .chosen-single {
+   @include formularioInput();
+
+   display: flex;
+   align-items: center;
+   border-radius: 5px;
+   background: transparent;
+   background-color: #fff;
+}
+
+.chosen-container-single .chosen-single span {
+
+   overflow: visible;
+   font-size: 1rem;
+}
+
+// tooltip
+
+.tooltip-trigger {
+   .tooltip-contenedor {
+      display: none;
+   }
+}
+
+.tippy-tooltip {
+   border-radius: 6px;
+   padding: 0;
+   background-color: $colorBlanco;
+}
+
+.tippy-popper[x-placement^="top"] .tippy-arrow{
+   border-top: 8px solid $colorBlanco;
+}
+
+.tippy-popper[y-placement^="left"] .tippy-arrow {
+   border-left: 8px solid $colorBlanco;
+}
+
+.tippy-popper[y-placement^=":right"] .tippy-arrow {
+   border-right: 8px solid $colorBlanco;
+}
+
+.tippy-popper[x-placement^="bottom"] .tippy-arrow {
+   border-bottom: 8px solid $colorAzul;
+}
+
+.tippy-tooltip {
+   @include sombra-media();
+}
+
+.contenido__rutaTooltip {
+
+   width: 320px;
+
+   @include paddingX05();
+
+}
+
+.tooltip-cabecera {
+
+   padding: 10px 10px 5px;
+
+   h3 {
+      font-size: 1.1rem;
+      padding-bottom: 0;
+   }
+
+   &.azul {
+      background-color: $colorAzul;
+      color: #fff;
+      margin: 0 -.5em;
+      border-radius: 6px 6px 0 0;
+      padding: .2em 0;
+
+      h3 {
+         color: $colorBlanco;
+      }
+
+      .close {
+         position: absolute;
+         right: 9px;
+         cursor: pointer;
+         font-size: 1rem;
+      }
+
+   }
+}
+
+
+.tooltip-contenido {
+   padding: 5px 10px 10px;
+   color: $colorPorDefecto;
+   font-size: .9rem;
+   text-align: left;
+}
+
+.contenido__rutaTooltip--monitoreo {
+
+   .tooltip-cabecera {
+      padding: 0;
+   }
+
+   .tooltip-contenido {
+      padding: 0;
+   }
+}
+
+
+
+
+
+
+/*------------------------------------
+   ?TIME PICKER
+------------------------------------*/
+
+.wickedpicker {
+   width: 190px;
+   height: auto;
+   border-radius: 5px;
+
+   &__title {
+      visibility: hidden;
+      padding: 5px 0 0;
+   }
+
+   &__close {
+      visibility: visible;
+      font-size: 1.3rem;
+   }
+
+   &__controls {
+      margin-top: -8px;
+      padding: 0 0 12px;
+
+      &__control-down:after {
+         content: '\e906';
+         font-family: InnoBus !important;
+      }
+
+      &__control-up:before {
+         content: '\e907';
+         font-family: InnoBus !important;
+      }
+   }
+}

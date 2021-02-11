@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <meta name='author' content='Escuela Didáctica, info@escueladidactica.com' />
+   <title>InnoBus-Conteo</title>
+   <link rel="stylesheet" href="css/slick.css">
+   <link rel="stylesheet" href="css/chosen.min.css">
+   <link rel="stylesheet" href="css/datepicker.min.css">
+   <link rel="stylesheet" href="css/wickedpicker.min.css">
+   <link rel="stylesheet" href="css/tippy.css">
+   <link rel="stylesheet" href="libs/thumbelina/thumbelina.css">
+   <link rel="stylesheet" href="css/InnoBus-Conteo.css">
+</head>
+
+<body>
+
+
+   <header class="encabezado">
+      <div class="marca">
+         <img class="marca__logo" src="img/site-logo.svg" alt="Site">
+      </div>
+      <div class="migaDePan">
+         <p class="migaDePan__completa">
+            <span class="migaDePan__item">Operaciones</span>
+            /
+            <span class="migaDePan__item">Reportes</span>
+            /
+            <span class="migaDePan__item">Conteo</span>
+            /
+            <span class="migaDePan__item">Despacho y puntos de control</span>
+         </p>
+      </div>
+   </header>
+
+   <div class="contenedorCuerpo">
+      <nav class="navBar js-navBar">
+         <div class="navBar__megaMenu">
+            <i class="ib-iconos ib-menu navBar__megaMenuIcono" alt="Menú"></i>
+
+            <div class="megaMenu">
+               <ul class="megaMenu__menu">
+                  <li class="megaMenu__menuItem">
+                     <a class="megaMenu__menuItemLink" href="#">Link 1</a>
+                     <ul class="megaMenu__submenu">
+                        <li class="megaMenu__menuItem">
+                           <a class="megaMenu__menuItemLink" href="#">Link 1.1</a>
+                           <ul class="megaMenu__submenu">
+                              <li class="megaMenu__menuItem">
+                                 <a class="megaMenu__menuItemLink" href="#">Link 1.1.1</a>
+                              </li>
+                              <li class="megaMenu__menuItem">
+                                 <a class="megaMenu__menuItemLink" href="#">Link 1.1.2</a>
+                              </li>
+                           </ul>
+                        </li>
+                        <li class="megaMenu__menuItem">
+                           <a class="megaMenu__menuItemLink" href="#">Link 1.2</a>
+                        </li>
+                        <li class="megaMenu__menuItem">
+                           <a class="megaMenu__menuItemLink" href="#">Link 1.3</a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="megaMenu__menuItem">
+                     <a class="megaMenu__menuItemLink" href="#">Link 2</a>
+                  </li>
+                  <li class="megaMenu__menuItem">
+                     <a class="megaMenu__menuItemLink" href="#">Link 3</a>
+                     <ul class="megaMenu__submenu">
+                        <li class="megaMenu__menuItem">
+                           <a class="megaMenu__menuItemLink" href="#">Link 3.1</a>
+                        </li>
+                        <li class="megaMenu__menuItem">
+                           <a class="megaMenu__menuItemLink" href="#">Link 3.2</a>
+                        </li>
+                        <li class="megaMenu__menuItem">
+                           <a class="megaMenu__menuItemLink" href="#">Link 3.3</a>
+                           <ul class="megaMenu__submenu">
+                              <li class="megaMenu__menuItem">
+                                 <a class="megaMenu__menuItemLink" href="#">Link 3.3.1</a>
+                              </li>
+                              <li class="megaMenu__menuItem">
+                                 <a class="megaMenu__menuItemLink" href="#">Link 3.3.2</a>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="megaMenu__menuItem">
+                     <a class="megaMenu__menuItemLink" href="#">Link 4</a>
+                  </li>
+                  <li class="megaMenu__menuItem">
+                     <a class="megaMenu__menuItemLink" href="#">Link 5</a>
+                  </li>
+                  <li class="megaMenu__menuItem">
+                     <a class="megaMenu__menuItemLink" href="#">Link 6</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+
+
+         <div class="menuFunciones">
+            <button class="menuFunciones__btn" data-ed-accodion="1">
+               <i class="ib-iconos ib-busFrente menuFunciones__btnIcono" alt="Despacho"></i>
+            </button>
+            <button class="menuFunciones__btn" data-ed-accodion="2">
+               <span class="menuFunciones__alerta--robo"></span>
+               <span class="menuFunciones__alerta--abandono"></span>
+               <span class="menuFunciones__alerta--exceso"></span>
+               <span class="menuFunciones__alerta--bloqueo"></span>
+               <i class="ib-iconos ib-bandera menuFunciones__btnIcono" alt="Alertas"></i>
+            </button>
+         </div>
+
+         <div class="perfil">
+            <div class="perfil__contenedorImg">
+               <a class="perfil__img" href="#" alt="Perfil"></a>
+               <div class="menuPerfil">
+                  <div class="menuPerfil__nombre">
+                     <p class="menuPerfil__nombreTexto">José Alberto Valenzuela</p>
+                  </div>
+                  <div class="menuPerfil__items">
+                     <a class="menuPerfil__link" href="#">Ver perfil</a>
+                     <a class="menuPerfil__link" href="#">Cerrar sesión</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+      </nav>
+
+
+      <div class="contenedor">
+
+         <aside class="barraLateral js-barraLateral">
+            <div id="ed-accodion-1" class="barraLateral__acordeonContenedor">
+
+               <h2 class="barraLateral__titulo">Despacho</h2>
+
+               <div class="barraLateral__descripcion">
+                  <p>Asigne las rutas sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                     euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+               </div>
+               <div class="barraLateral__ruta">
+                  <div class="barraLateral__rutaNombre">
+                     <span class="barraLateral__rutaTexto">
+                        Ruta <span class="barraLateral__rutaNumero">14</span>
+                     </span>
+                  </div>
+                  <div class="js-carousel carousel barraLateral__rutaRecorrido">
+                     <div class="thumbelina-but horiz left"><i class="ib-iconos ib-flechaIzquierda"></i></div>
+                     <ul>
+                        <li>
+                           <div class="barraLateral__ubicacion acordeon-trigger" data-acordeon="1">
+                              <span class="ib-iconos ib-busFrente barraLateral__ubicacionIcono">
+                                 <!--<img src="img/icono-busfrente-verde.png"/>-->
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">SF221</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="barraLateral__ubicacion acordeon-trigger" data-acordeon="1">
+                              <span class="ib-iconos ib-busFrente barraLateral__ubicacionIcono">
+                                 <!--<img src="img/icono-busfrente-verde.png"/>-->
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">SF221</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="barraLateral__ubicacion sinAsignar acordeon-trigger" data-acordeon="1">
+                              <span class="ib-iconos ib-busFrente-contorno barraLateral__ubicacionIcono">
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">-----</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="barraLateral__ubicacion sinAsignar acordeon-trigger" data-acordeon="1">
+                              <span class="ib-iconos ib-busFrente-contorno barraLateral__ubicacionIcono">
+                                 <!--<img src="img/icono-busfrente-verde.png"/>-->
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">-----</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="barraLateral__ubicacion sinAsignar acordeon-trigger" data-acordeon="1">
+                              <span class="ib-iconos ib-busFrente-contorno barraLateral__ubicacionIcono">
+                                 <!--<img src="img/icono-busfrente-verde.png"/>-->
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">-----</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                     </ul>
+
+                     <div class="thumbelina-but horiz right"><i class="ib-iconos ib-flechaDerecha"></i></div>
+                  </div>
+
+               </div>
+               <div id="rutaAcordeon-1" class="barraLateral__rutaAcordeon acordeon-contenido">
+                  <div class="barraLateral__rutaFormulario">
+                     <div class="barraLateral__rutaFormularioItem">
+                        <i class="ib-iconos ib-busFrente barraLateral__rutaIcono"></i>
+                        <select class="barraLateral__rutaSeleccion chosen">
+                           <option>SF 235</option>
+                           <option>SF 234</option>
+                           <option>SF 236</option>
+                           <option>SF 237</option>
+                        </select>
+                     </div>
+
+                     <div class="barraLateral__rutaFormularioItem">
+                        <i class="ib-iconos ib-reloj barraLateral__rutaIcono"></i>
+                        <input type="text" class="timepicker">
+                     </div>
+                  </div>
+                  <div class="barraLateral__rutaAcciones">
+
+                     <button class="barraLateral__rutaBoton">Añadir</button>
+                  </div>
+               </div>
+
+               <!--despacho-->
+               <div class="barraLateral__ruta completa" data-ed-accordion="2">
+                  <div class="barraLateral__rutaNombre">
+                     <span class="barraLateral__rutaTexto">
+                        Ruta <span class="barraLateral__rutaNumero">8</span>
+                     </span>
+                  </div>
+                  <div class="js-carousel carousel barraLateral__rutaRecorrido">
+                     <div class="thumbelina-but horiz left"><i class="ib-iconos ib-flechaIzquierda"></i></div>
+                     <ul>
+                        <li>
+                           <div class="barraLateral__ubicacion acordeon-trigger" data-acordeon="2">
+                              <span class="ib-iconos ib-busFrente barraLateral__ubicacionIcono">
+                                 <!--<img src="img/icono-busfrente-verde.png"/>-->
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">SF221</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="barraLateral__ubicacion acordeon-trigger" data-acordeon="2">
+                              <span class="ib-iconos ib-busFrente barraLateral__ubicacionIcono">
+                                 <!--<img src="img/icono-busfrente-verde.png"/>-->
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">SF221</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="barraLateral__ubicacion acordeon-trigger" data-acordeon="2">
+                              <span class="ib-iconos ib-busFrente barraLateral__ubicacionIcono">
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">-----</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="barraLateral__ubicacion acordeon-trigger" data-acordeon="2">
+                              <span class="ib-iconos ib-busFrente barraLateral__ubicacionIcono">
+                                 <!--<img src="img/icono-busfrente-verde.png"/>-->
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">-----</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="barraLateral__ubicacion acordeon-trigger" data-acordeon="2">
+                              <span class="ib-iconos ib-busFrente barraLateral__ubicacionIcono">
+                                 <!--<img src="img/icono-busfrente-verde.png"/>-->
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">-----</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                     </ul>
+
+                     <div class="thumbelina-but horiz right"><i class="ib-iconos ib-flechaDerecha"></i></div>
+                  </div>
+               </div>
+               <div id="rutaAcordeon-2" class="barraLateral__rutaAcordeon acordeon-contenido">
+                  <div class="barraLateral__rutaFormulario">
+                     <i class="ib-iconos ib-busFrente barraLateral__rutaIcono"></i>
+                     <select class="barraLateral__rutaSeleccion chosen">
+                        <option>SF 235</option>
+                        <option>SF 234</option>
+                        <option>SF 236</option>
+                        <option>SF 237</option>
+                     </select>
+                     <div class="barraLateral__rutaAcciones">
+
+                        <button class="barraLateral__rutaBoton">Añadir</button>
+                     </div>
+                  </div>
+               </div>
+
+               <!--despacho-->
+               <div class="barraLateral__ruta" data-ed-accordion="3">
+                  <div class="barraLateral__rutaNombre">
+                     <span class="barraLateral__rutaTexto">
+                        Ruta <span class="barraLateral__rutaNumero">999</span>
+                     </span>
+                  </div>
+                  <div class="js-carousel carousel barraLateral__rutaRecorrido">
+                     <div class="thumbelina-but horiz left"><i class="ib-iconos ib-flechaIzquierda"></i></div>
+                     <ul>
+                        <li>
+                           <div class="barraLateral__ubicacion acordeon-trigger" data-acordeon="3">
+                              <span class="ib-iconos ib-busFrente barraLateral__ubicacionIcono">
+                                 <!--<img src="img/icono-busfrente-verde.png"/>-->
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">SF221</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="barraLateral__ubicacion acordeon-trigger" data-acordeon="3">
+                              <span class="ib-iconos ib-busFrente barraLateral__ubicacionIcono">
+                                 <!--<img src="img/icono-busfrente-verde.png"/>-->
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">SF221</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="barraLateral__ubicacion sinAsignar acordeon-trigger" data-acordeon="3">
+                              <span class="ib-iconos ib-busFrente-contorno barraLateral__ubicacionIcono">
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">-----</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="barraLateral__ubicacion sinAsignar acordeon-trigger" data-acordeon="3">
+                              <span class="ib-iconos ib-busFrente-contorno barraLateral__ubicacionIcono">
+                                 <!--<img src="img/icono-busfrente-verde.png"/>-->
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">-----</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="barraLateral__ubicacion sinAsignar acordeon-trigger" data-acordeon="3">
+                              <span class="ib-iconos ib-busFrente-contorno barraLateral__ubicacionIcono">
+                                 <!--<img src="img/icono-busfrente-verde.png"/>-->
+                              </span>
+                              <span class="barraLateral__ubicacionCodigo">-----</span>
+                              <span class="barraLateral__ubicacionGrafico">
+                                 <hr class="barraLateral__ubicacionLinea">
+                                 </hr>
+                                 <div class="barraLateral__ubicacionPunto">
+                                    <div></div>
+                                 </div>
+                              </span>
+                              <span class="barraLateral__ubicacionHora">4:30</span>
+                              <div class="barraLateral__ubicacionFlecha"></div>
+                           </div>
+                        </li>
+                     </ul>
+
+                     <div class="thumbelina-but horiz right"><i class="ib-iconos ib-flechaDerecha"></i></div>
+                  </div>
+               </div>
+               <div id="rutaAcordeon-3" class="barraLateral__rutaAcordeon acordeon-contenido">
+                  <div class="barraLateral__rutaFormulario">
+                     <i class="ib-iconos ib-busFrente barraLateral__rutaIcono"></i>
+                     <select class="barraLateral__rutaSeleccion chosen">
+                        <option>SF 235</option>
+                        <option>SF 234</option>
+                        <option>SF 236</option>
+                        <option>SF 237</option>
+                     </select>
+                     <div class="barraLateral__rutaAcciones">
+
+                        <button class="barraLateral__rutaBoton">Añadir</button>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+            <div id="ed-accodion-2" class="barraLateral__acordeonContenedor">
+               <h2 class="barraLateral__titulo">Alertas</h2>
+               <div class="barraLateral__acordeonContenido">
+                  <div class="barraLateral__alerta alerta_exceso">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Excedió velocidad</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_robo">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Alerta de robo</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_abandono">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Abandonó la ruta</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_bloqueo">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Bloqueo de sensor</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_exceso">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Excedió velocidad</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_robo">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Alerta de robo</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_abandono">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Abandonó la ruta</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_bloqueo">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Bloqueo de sensor</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_exceso">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Excedió velocidad</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_robo">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Alerta de robo</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_abandono">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Abandonó la ruta</span>
+                     </div>
+                  </div>
+                  <div class="barraLateral__alerta alerta_bloqueo">
+                     <div>
+                        <span class="barraLateral__alertaCirculo"></span>
+                        <span class="barraLateral__alertaCodigo">SF221</span>
+                        <span class="barraLateral__alertaDescripcion">Bloqueo de sensor</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </aside>
+         <section class="contenido js-contenido">
+            <h2 class="contenido__titulo">
+               Despacho y puntos de control
+            </h2>
+            <div class="contenido__ruta">
+               <div class="contenido__rutaEncabezado">
+                  <span class="contenido__rutaNumero">Ruta 20</span>
+               </div>
+               <div class="contenido__vehiculo">
+                  <div class="contenido__vehiculoGrupoIcono">
+                     <i class="ib-iconos ib-bus contenido__vehiculoIcono"></i>
+                     <span class="contenido__vehiculoCodigo">SF221</span>
+                     <a class="contenido__vehiculoReporte" href="#">Reporte</a>
+                  </div>
+                  <div class="js-carousel carousel carouselVehiculo">
+                     <div class="thumbelina-but horiz left"><i class="ib-iconos ib-flechaIzquierda"></i></div>
+                     <ul>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem adelantado">
+                              <div class="contenido__cronogramaTitulo">
+                                 <p>PC1</p>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <p class="contenido__graficaTiempo">
+                                          +20 min
+                                       </p>
+                                       <p class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem atrasado">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          -2 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem atrasado">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          -50 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                     </ul>
+
+                     <div class="thumbelina-but horiz right"><i class="ib-iconos ib-flechaDerecha"></i></div>
+                  </div>
+
+
+               </div>
+               <div class="contenido__vehiculo">
+                  <div class="contenido__vehiculoGrupoIcono">
+                     <i class="ib-iconos ib-bus contenido__vehiculoIcono"></i>
+                     <span class="contenido__vehiculoCodigo">SF22ddd</span>
+                     <a class="contenido__vehiculoReporte" href="#">Reporte</a>
+                  </div>
+                  <div class="js-carousel carousel carouselVehiculo">
+                     <div class="thumbelina-but horiz left"><i class="ib-iconos ib-flechaIzquierda"></i></div>
+                     <ul>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem adelantado">
+                              <div class="contenido__cronogramaTitulo">
+                                 <p>PC1</p>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <p class="contenido__graficaTiempo">
+                                          +20 min
+                                       </p>
+                                       <p class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1445</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem atrasado">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          -2 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem atrasado">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          -50 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                     </ul>
+
+                     <div class="thumbelina-but horiz right"><i class="ib-iconos ib-flechaDerecha"></i></div>
+                  </div>
+
+
+               </div>
+            </div>
+            <div class="contenido__ruta">
+               <div class="contenido__rutaEncabezado">
+                  <span class="contenido__rutaNumero">Ruta 8</span>
+               </div>
+               <div class="contenido__vehiculo">
+                  <div class="contenido__vehiculoGrupoIcono">
+                     <i class="ib-iconos ib-bus contenido__vehiculoIcono"></i>
+                     <span class="contenido__vehiculoCodigo">SF221</span>
+                     <a class="contenido__vehiculoReporte" href="#">Reporte</a>
+                  </div>
+                  <div class="js-carousel carousel carouselVehiculo">
+                     <div class="thumbelina-but horiz left"><i class="ib-iconos ib-flechaIzquierda"></i></div>
+                     <ul>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem adelantado">
+                              <div class="contenido__cronogramaTitulo">
+                                 <p>PC1</p>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <p class="contenido__graficaTiempo">
+                                          +20 min
+                                       </p>
+                                       <p class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem atrasado">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          -2 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem atrasado">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          -50 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                     </ul>
+
+                     <div class="thumbelina-but horiz right"><i class="ib-iconos ib-flechaDerecha"></i></div>
+                  </div>
+
+
+               </div>
+               <div class="contenido__vehiculo">
+                  <div class="contenido__vehiculoGrupoIcono">
+                     <i class="ib-iconos ib-bus contenido__vehiculoIcono"></i>
+                     <span class="contenido__vehiculoCodigo">SF221</span>
+                     <a class="contenido__vehiculoReporte" href="#">Reporte</a>
+                  </div>
+                  <div class="js-carousel carousel carouselVehiculo">
+                     <div class="thumbelina-but horiz left"><i class="ib-iconos ib-flechaIzquierda"></i></div>
+                     <ul>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem adelantado">
+                              <div class="contenido__cronogramaTitulo">
+                                 <p>PC1</p>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <p class="contenido__graficaTiempo">
+                                          +20 min
+                                       </p>
+                                       <p class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem atrasado">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          -2 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem atrasado">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          -50 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                        <li class="carouselVehiculo__item">
+                           <div class="contenido__cronogramaItem">
+                              <div class="contenido__cronogramaTitulo">
+                                 <span>PC1</span>
+                              </div>
+                              <div class="contenido__cronogramaInfo">
+                                 <div class="contenido__cronogramaLineasGuia">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                 </div>
+                                 <div class="contenido__cronogramaResumen">
+                                    <div class=" contenido__grafica">
+                                       <div class="contenido__graficaVariable"></div>
+                                    </div>
+                                    <div class="contenido__graficaDatos">
+                                       <span class="contenido__graficaTiempo">
+                                          0 min
+                                       </span>
+                                       <span class="contenido__graficaHora">
+                                          04:50 P.M.
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                     </ul>
+
+                     <div class="thumbelina-but horiz right"><i class="ib-iconos ib-flechaDerecha"></i></div>
+                  </div>
+
+
+               </div>
+            </div>
+         </section>
+
+      </div>
+   </div>
+
+
+
+
+
+
+
+   <script src="libs/jquery.min.js"></script>
+   <script src="libs/thumbelina/thumbelina.js"></script>
+   <script type="text/javascript" src="js/slick.min.js"></script>
+   <script type="text/javascript" src="js/chosen.jquery.min.js"></script>
+   <script type="text/javascript" src="js/datepicker.min.js"></script>
+   <script type="text/javascript" src="js/wickedpicker.min.js"></script>
+   <!--tooltips-->
+   <script src="js/popper.min.js"></script>
+   <script src="js/tippy.min.js"></script>
+   <!--site scripts-->
+   <script src="js/InnoBus-Conteo.js"></script>
+</body>
+
+</html>
