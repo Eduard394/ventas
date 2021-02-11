@@ -3,30 +3,48 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\ProductoRepository;
 use App\Product;
 
-class ProductController extends Controller{
+class ProductController extends Controller
+{
 
 	// functions
-	public function formProduct(){
-		return view('products.formProduct');
+	/** @var  convocatoriaRepository */
+	private $productoRepository;
+
+	public function __construct(ProductoRepository $productoRepository)
+	{
+		$this->productoRepository    = $productoRepository;
+	}
+
+	public function all()
+	{
+		return $this->productoRepository->allProducts();
+	}
+
+	public function formProduct()
+	{
+		return view('products.create');
 	}
 
 
-    public function store(Request $request){
-    	$name = $request->input('name');
-    	$descripcion = $request->input('descripcion');
-    	$precio = $request->input('precio');
-        Product::create([	
-            'name' => $name,
-            'descripcion' => $descripcion,
-            'precio' => $precio
-        ]);
-        return 200;
+	public function store(Request $request)
+	{
+		$producto = $this->productoRepository->store($request->all());
+		return $producto;
 	}
 
-	public function allProducts(){
-		$products = Product::orderBy('name','asc')->paginate(10);
+	public function allProducts()
+	{
+		$products = Product::orderBy('name', 'asc')->paginate(10);
 		return $products;
+	}
+
+	public function update(Request $request, $id)
+	{
+		$data     = $request->all();
+		$convocatoria = $this->convocatoriaRepository->update($data, $id);
+		return redirect()->back()->withSuccess('¡ convocatoria ' . $convocatoria . ' editado exitosamente !');
 	}
 }
